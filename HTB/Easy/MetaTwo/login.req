@@ -1,0 +1,15 @@
+POST /wp-login.php HTTP/1.1
+Host: metapress.htb
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://metapress.htb/wp-login.php
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 102
+Origin: http://metapress.htb
+Connection: close
+Cookie: PHPSESSID=pqgvtfibbf5ai6mp06o8o2i1te; wordpress_test_cookie=WP%20Cookie%20check
+Upgrade-Insecure-Requests: 1
+
+log=admin&pwd=admin&wp-submit=Log+In&redirect_to=http%3A%2F%2Fmetapress.htb%2Fwp-admin%2F&testcookie=1

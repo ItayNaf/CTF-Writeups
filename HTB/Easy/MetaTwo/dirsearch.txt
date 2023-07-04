@@ -1,0 +1,57 @@
+─$ dirsearch -u http://metapress.htb -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -e txt,php,html
+
+  _|. _ _  _  _  _ _|_    v0.4.2
+ (_||| _) (/_(_|| (_| )
+
+Extensions: txt, php, html | HTTP method: GET | Threads: 30 | Wordlist size: 207628
+
+Output File: /home/kali/.dirsearch/reports/metapress.htb/_22-12-10_15-28-22.txt
+
+Error Log: /home/kali/.dirsearch/logs/errors-22-12-10_15-28-22.log
+
+Target: http://metapress.htb/
+
+[15:28:22] Starting:
+[15:28:23] 301 -    0B  - /about  ->  http://metapress.htb/about-us/
+[15:28:24] 301 -    0B  - /rss  ->  http://metapress.htb/feed/
+[15:28:24] 302 -    0B  - /login  ->  http://metapress.htb/wp-login.php
+[15:28:24] 301 -    0B  - /events  ->  http://metapress.htb/events/
+[15:28:25] 301 -    0B  - /feed  ->  http://metapress.htb/feed/
+[15:28:25] 301 -    0B  - /0  ->  http://metapress.htb/0/
+[15:28:25] 301 -    0B  - /atom  ->  http://metapress.htb/feed/atom/
+[15:28:25] 301 -    0B  - /s  ->  http://metapress.htb/sample-page/
+[15:28:25] 301 -    0B  - /a  ->  http://metapress.htb/about-us/
+[15:28:26] 301 -    0B  - /c  ->  http://metapress.htb/cancel-appointment/
+[15:28:26] 301 -  169B  - /wp-content  ->  http://metapress.htb/wp-content/
+[15:28:26] 301 -    0B  - /t  ->  http://metapress.htb/thank-you/
+[15:28:26] 302 -    0B  - /admin  ->  http://metapress.htb/wp-admin/
+[15:28:29] 301 -    0B  - /e  ->  http://metapress.htb/events/
+[15:28:31] 301 -    0B  - /h  ->  http://metapress.htb/hello-world/
+[15:28:34] 301 -    0B  - /rss2  ->  http://metapress.htb/feed/
+[15:28:36] 301 -    0B  - /ca  ->  http://metapress.htb/cancel-appointment/
+[15:28:36] 301 -    0B  - /event  ->  http://metapress.htb/events/
+[15:28:40] 301 -  169B  - /wp-includes  ->  http://metapress.htb/wp-includes/
+[15:28:51] 301 -    0B  - /about-us  ->  http://metapress.htb/about-us/
+[15:29:03] 301 -    0B  - /sa  ->  http://metapress.htb/sample-page/
+[15:29:05] 301 -    0B  - /rdf  ->  http://metapress.htb/feed/rdf/
+[15:29:06] 301 -    0B  - /page1  ->  http://metapress.htb/
+[15:29:11] 301 -    0B  - /sample  ->  http://metapress.htb/sample-page/
+[15:29:18] 301 -    0B  - /'  ->  http://metapress.htb/
+[15:29:27] 301 -    0B  - /th  ->  http://metapress.htb/thank-you/
+[15:29:45] 302 -    0B  - /dashboard  ->  http://metapress.htb/wp-admin/
+[15:29:58] 301 -    0B  - /he  ->  http://metapress.htb/hello-world/
+[15:30:11] 301 -    0B  - /ab  ->  http://metapress.htb/about-us/
+[15:30:13] 301 -    0B  - /%20  ->  http://metapress.htb/
+[15:30:26] 301 -    0B  - /sam  ->  http://metapress.htb/sample-page/
+[15:31:10] 301 -    0B  - /hello  ->  http://metapress.htb/hello-world/
+[15:31:28] 301 -    0B  - /ev  ->  http://metapress.htb/events/
+[15:31:58] 301 -  169B  - /wp-admin  ->  http://metapress.htb/wp-admin/
+[15:32:17] 301 -    0B  - /cancel  ->  http://metapress.htb/cancel-appointment/
+[15:32:21] 301 -    0B  - /eve  ->  http://metapress.htb/events/
+[15:32:31] 301 -    0B  - /can  ->  http://metapress.htb/cancel-appointment/
+[15:34:07] 301 -    0B  - /0000  ->  http://metapress.htb/0000/
+[15:34:17] 301 -    0B  - /2022  ->  http://metapress.htb/2022/
+[15:35:32] 301 -    0B  - /hello-world  ->  http://metapress.htb/hello-world/
+[15:36:08] 301 -    0B  - /abo  ->  http://metapress.htb/about-us/
+[15:36:17] 301 -    0B  - /embed  ->  http://metapress.htb/embed/
+[15:36:42] 301 -    0B  - /hell  ->  http://metapress.htb/hello-world/

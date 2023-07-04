@@ -1,0 +1,5 @@
+Discovered open port 22/tcp on 10.10.11.166                                    
+Discovered open port 80/tcp on 10.10.11.166                                    
+Discovered open port 25/tcp on 10.10.11.166                                    
+Discovered open port 53/tcp on 10.10.11.166                                    
+Discovered open port 53/udp on 10.10.11.166                                    
