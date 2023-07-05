@@ -1,0 +1,3 @@
+SQL_SVC:REGGIE1234ronnie:MSSQL Server and Target Server
+PublicUser:GuestUserCantWrite1:MSSQL Server
+Ryan.Cooper:NuclearMosquito3:evil-winrm

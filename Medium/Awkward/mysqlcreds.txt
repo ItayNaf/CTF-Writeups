@@ -1,0 +1,7 @@
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'SQLDatabasePassword321!',
+  database: 'hatvalley',
+  stringifyObjects: true
+})

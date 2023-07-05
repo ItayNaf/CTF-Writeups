@@ -1,0 +1,5 @@
+/images               (Status: 301) [Size: 313] [--> http://10.10.11.183/images/]
+/categories           (Status: 301) [Size: 317] [--> http://10.10.11.183/categories/]
+/posts                (Status: 301) [Size: 312] [--> http://10.10.11.183/posts/]
+/tags                 (Status: 301) [Size: 311] [--> http://10.10.11.183/tags/]
+/server-status        (Status: 403) [Size: 277]

@@ -1,0 +1,28 @@
+SQL Server Procedures
+Since last year we've got quite few accidents with our SQL Servers (looking at you Ryan, with your instance on the DC, why should
+you even put a mock instance on the DC?!). So Tom decided it was a good idea to write a basic procedure on how to access and
+then test any changes to the database. Of course none of this will be done on the live server, we cloned the DC mockup to a
+dedicated server.
+Tom will remove the instance from the DC as soon as he comes back from his vacation.
+The second reason behind this document is to work like a guide when no senior can be available for all juniors.
+
+Accessing from Domain Joined machine
+1. Use SQL Management Studio specifying "Windows" authentication which you can donwload here:
+https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16
+2. In the "Server Name" field, input the server name.
+3. Specify "Windows Authentication" and you should be good to go.
+4. Access the database and make that you need. Everything will be resynced with the Live server overnight.
+
+Accessing from non domain joined machine
+Accessing from non domain joined machines can be a little harder.
+The procedure is the same as the domain joined machine but you need to spawn a command prompt and run the following
+command: cmdkey /add:"<serverName>.sequel.htb" /user:"sequel\<userame>" /pass:<password> . Follow the other steps from
+above procedure.
+If any problem arises, please send a mail to Brandon
+
+Bonus
+For new hired and those that are still waiting their users to be created and perms assigned, can sneak a peek at the Database with
+user PublicUser and password GuestUserCantWrite1 .
+Refer to the previous guidelines and make sure to switch the "Windows Authentication" to "SQL Server Authentication".
+
+

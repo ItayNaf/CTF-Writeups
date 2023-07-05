@@ -1,0 +1,50 @@
+# Nmap 7.93 scan initiated Fri Mar 17 10:47:45 2023 as: nmap -sC -sV -oN nmap/initial -v 10.10.11.195
+Increasing send delay for 10.10.11.195 from 0 to 5 due to 181 out of 603 dropped probes since last increase.
+Increasing send delay for 10.10.11.195 from 5 to 10 due to 13 out of 43 dropped probes since last increase.
+Increasing send delay for 10.10.11.195 from 10 to 20 due to 11 out of 17 dropped probes since last increase.
+Increasing send delay for 10.10.11.195 from 20 to 40 due to 11 out of 15 dropped probes since last increase.
+Increasing send delay for 10.10.11.195 from 40 to 80 due to 11 out of 13 dropped probes since last increase.
+Increasing send delay for 10.10.11.195 from 80 to 160 due to 11 out of 13 dropped probes since last increase.
+Increasing send delay for 10.10.11.195 from 160 to 320 due to 11 out of 12 dropped probes since last increase.
+Increasing send delay for 10.10.11.195 from 320 to 640 due to 11 out of 11 dropped probes since last increase.
+Increasing send delay for 10.10.11.195 from 640 to 1000 due to 11 out of 11 dropped probes since last increase.
+Nmap scan report for 10.10.11.195
+Host is up (0.11s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT    STATE SERVICE  VERSION
+22/tcp  open  ssh      OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 df17c6bab18222d91db5ebff5d3d2cb7 (RSA)
+|   256 3f8a56f8958faeafe3ae7eb880f679d2 (ECDSA)
+|_  256 3c6575274ae2ef9391374cfdd9d46341 (ED25519)
+80/tcp  open  http     Apache httpd 2.4.54
+|_http-title: Did not follow redirect to https://broscience.htb/
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.54 (Debian)
+443/tcp open  ssl/http Apache httpd 2.4.54 ((Debian))
+| tls-alpn: 
+|_  http/1.1
+|_http-server-header: Apache/2.4.54 (Debian)
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=broscience.htb/organizationName=BroScience/countryName=AT
+| Issuer: commonName=broscience.htb/organizationName=BroScience/countryName=AT
+| Public Key type: rsa
+| Public Key bits: 4096
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2022-07-14T19:48:36
+| Not valid after:  2023-07-14T19:48:36
+| MD5:   5328ddd62f3429d11d26ae8a68d86e0c
+|_SHA-1: 20568d0d9e4109cde5a22021fe3f349c40d8d75b
+|_http-title: BroScience : Home
+Service Info: Host: broscience.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Mar 17 10:52:52 2023 -- 1 IP address (1 host up) scanned in 307.89 seconds
