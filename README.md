@@ -12,3 +12,16 @@
 * [Stocker](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Easy/Stocker)
 * [Trick](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Easy/Trick)
 
+
+### Medium Machines
+
+* [Ambassador](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Ambassador)
+* [Awkward](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Awkward)
+* [BroScience](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/BroScience)
+* [Escape](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Escape)
+* [Investigation](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Investigation)
+
+
+**Some Respect:** https://app.hackthebox.com/users/1122628
+
+
