@@ -11,6 +11,7 @@
 * [Soccer](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Easy/soccer)
 * [Stocker](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Easy/Stocker)
 * [Trick](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Easy/Trick)
+* [Inject](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Easy/Inject)
 
 
 ### Medium Machines
@@ -22,6 +23,6 @@
 * [Investigation](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Investigation)
 
 
-**Some Respect:** https://app.hackthebox.com/users/1122628
+**Some Respect:** * [0xFade](https://app.hackthebox.com/users/1122628)
 
 
