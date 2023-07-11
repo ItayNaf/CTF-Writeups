@@ -23,6 +23,6 @@
 * [Investigation](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Investigation)
 
 
-**Some Respect:** * [0xFade](https://app.hackthebox.com/users/1122628)
+**Some Respect would be appreciated :** [0xFade](https://app.hackthebox.com/users/1122628)
 
 
