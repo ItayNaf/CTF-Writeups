@@ -44,7 +44,7 @@ After discovering the 'dev' subdomain we enter it to our /etc/hosts after that I
 
 Well as you may know or not(if not read this interesting article about nosqli and how it works https://infosecwriteups.com/nosql-injection-8732c2140576) when injecting nosql you can do it in two ways one with the php adaption where you manipulate the post parameters, and the second is with the json technique where you change the content type to `application/json` and by that the web app will get json parameters. So how to do it:
 <br/>
-![nosqli](captures/nosqli.png)
+![nosqli](captures/1nosqli.png)
 
 ### Keep Enumerating 
 
@@ -52,14 +52,14 @@ After entering the site you got a pretty straight forward site, you add an item 
 
 <br/>
 
-![pdfi](captures/pdfi.png)
+![pdfi](captures/2pdfi.png)
 
 Did the same thing with this payload: `<iframe height=750 width=500 src=file:///etc/passwd></iframe>`
 got this:
 
 <br/>
 
-![etc-passwd](captures/etc-passwd.png)
+![etc-passwd](captures/3etc-passwd.png)
 
 <b>users: root, angoose.</b>
 
@@ -68,14 +68,14 @@ Now, to retrieve the password it was a little more difficult, if you know the li
 
 ### SSH Login
 
-![ssh-login](captures/ssh.png)
+![ssh-login](captures/4ssh.png)
 
 ### PrivEsc
 
 Now after logging in and roaming a little bit in the system I want to escalate my privileges so first thing I do, `sudo -l` which displays me my sudo permissions.
 <br/>
 
-![sudo-l](captures/sudo.png)
+![sudo-l](captures/5sudo.png)
 
 <br/>
 
@@ -83,4 +83,4 @@ Now after seeing this we know we can execute javascript files from the folder `/
 
 <br/>
 
-![root](captures/root.png)
+![root](captures/6root.png)
