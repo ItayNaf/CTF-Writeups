@@ -48,7 +48,7 @@ Well as you may know or not(if not read this interesting article about nosqli an
 
 ### Keep Enumerating 
 
-After entering the site you got a pretty straight forward site, you add an item to the cart and you purchase it, after purchasing you get a pdf certificate that you indeed purchased the item/s, this is the interesting part. When I see a pdf first thing that comes to mined is Server Side XSS so lets try.
+After entering the site you got a pretty straight forward site, you add an item to the cart and you purchase it, after purchasing you get a pdf certificate that you indeed purchased the item/s, this is the interesting part. When I see a pdf first thing that comes to mind is Server Side XSS so lets try.
 
 <br/>
 
