@@ -23,8 +23,8 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ### Enumeration
 
 
-<p>After a lot of enumeration, I found a file from the websites source code called app.js, and for a long time I just searched for interesting things, for example searched for passwords, users, login. So after doing that I found that the website have a baseURL and it equals to "/api/" so, we got an api directory, from the app.js file there should be, a login, store-status, staff-details. But they don't connect, one at least put's us an JsonWebTokenError so we get to see sum internal files, but not that interesting. So one more file that I found by searching for 'href' I found a file called "/hr", and when I accessed it, it's a login form, so that's great.</p>
-<p>So after a quick look at the login form I start on with some default or common credentials after that SQLi, or NoSQLi no I imagined to myself that the server is running on mongoDB because of the Node.js and express so I started trying some simple payloads but they didn't work. I took a good look on the request that Im sending and saw that the cookie is set to guest, wonder what'll happen if I switch it to admin?, so I switched it, and it worked. I logged in.</p>
+<p>After a lot of enumeration, I found a file from the websites source code called app.js, and for a long time I just searched for interesting things, for example searched for passwords, users, login. So after doing that for a while I found that the webapp is using and api because of a variable call `baseURL` with the value of "/api/", so I understand that there are, a login, store-status, staff-details routes. But they don't connect, one at least put's us an JsonWebTokenError so we get to see some internal files, but not that interesting. I started thinking what could lead me to find information, I just started to do `ctrl+f` and write stuff like: password, username. and I thought of something to write, `href` is an attribute inside a link that is the source to where that link is headed, and there I found it. A directory called "/hr". When accessing it it's a login form. </p>
+<p>So after a quick look at the login form I start on with some default or common credentials after that SQLi, or NoSQLi now I imagined to myself that the server is running on mongoDB because of the Node.js and express so I started trying some simple payloads but they didn't work. I took a good look on the request that I'm sending and saw that the cookie is set to guest, wonder what'll happen if I switch it to admin?, so I switched it, and it worked. I logged in.</p>
 <p>After intercepting the "/dashboard" directory it seems that a redirect from a domain called store.hat-valley.htb is taking place, so we got more to enumerate.</p>
 <p>Well looks like I got into a rabbit hole, went a little back to the api directory, and enumerated a little bit there and I discoverd that when accessing the file "/api/staff-details" it displays all the staffs details including usernames and hashed credentials.</p>
 <br><img src=captures/0x1staff-details.png />
@@ -53,7 +53,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ### Exploitation
 
 
-<p>After entering the site I get a documentation for each function a really interesting one is the '/api/submit-leave' and why is that well see:</p>
+<p>After entering the site I get a documentation for each function. A really interesting one is the '/api/submit-leave' and why is that well see:</p>
 
 ```
   exec("awk '/" + user + "/' /var/www/private/leave_requests.csv", {encoding: 'binary', maxBuffer: 51200000}, (error, stdout, stderr) => {
@@ -79,8 +79,8 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
   })
 ```
 
-<p>The interesting thing here is without a doubt the exec() function which uses the awk command, now when saw awk I immediately thought about LFI, and this is because awk is sort of a file manager so probably we can try and get some files.</p>
-<p>as you can see in the command the "user" variable is a the pattern in for the leave-requests file, meaning it will display everything where the user is located. The pattern is as follows: '/christopher.jones/'</p>
+<p>The interesting thing here is without a doubt the exec() function which uses the awk command, now when I saw awk I immediately thought about LFI, and this is because awk is sort of a file manager so probably we can try and get some files.</p>
+<p>as you can see in the command the "user" variable is the pattern for the leave-requests file, meaning it will display everything where the user is located. The pattern is as follows: '/christopher.jones/'</p>
 <p>So if we change the christopher.jones user to be a file it will work but how will we do that? well if you look at how the user variable is created you can see that it decodes the JWT token and takes the username, so maybe if we insert a different token which is the file for example, "/etc/passwd" then it will display. Now before we do that we need to check when we can print both the files without changing instead of the " '//' ". So I found a command that works and it goes as follows: "awk '/'/ /etc/passwd /'/' file.txt". Great so we got what we need, Now convert it to a JWT token, for that we can go to the website <a href="https://jwt.io/#debugger-io">https://jwt.io/#debugger-io</a> </p>
 <img src="captures/0x8jwtEncode.png" />
 <p>Now copy the encoded string and curl the request:</p>
@@ -102,13 +102,12 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 <p>So lets take the final one.</p>
 <img src="captures/12bean.png" />
 <img src="captures/13creds.png" />
-<p>As you can see while navigating through this file system I found this file with bean.hill username and password credentials.</p>
+<p>As you can see while navigating through this file system I found this file with the `bean.hill` username and password credentials.</p>
 <img src="captures/14ssh.png" />
 <p><b>BOOM!!</b> we got SSH connection</p>
 
 
-
-### Privilege Escalation 
+### Getting to www-data
 
 
 ```
@@ -121,10 +120,7 @@ const connection = mysql.createConnection({
 })
 
 ```
-<p>MySQL credentials, not help here but a finding.</p>
-
-
-#### Getting to www-data
+<p>MySQL credentials, doesn't help here but a finding.</p>
 
 
 <p>After enumerating through the file system I stumbled upon a directory called store, in "/var/www/store" in that dir are a couple of php files, this directory correlates to the subdomain we found earlier. So I tried to login to that domain. Because we already know the bean password I tried it with a couple of combinations, one worked and it was the <b>admin:014mrbeanrules!#P</b> After logging in, you can see the intended store for the hat-valley site, there you can add products to your cart and buy them.</p>
@@ -169,6 +165,7 @@ const connection = mysql.createConnection({
   <ol>
 </p>
 
+### Privilege Escalation 
 
 #### Mail exploit
 
