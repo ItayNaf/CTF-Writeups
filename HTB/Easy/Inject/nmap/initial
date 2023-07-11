@@ -1,0 +1,28 @@
+# Nmap 7.93 scan initiated Mon Mar 13 15:20:08 2023 as: nmap -sC -sV -oN nmap/initial -v 10.129.183.48
+Increasing send delay for 10.129.183.48 from 0 to 5 due to 211 out of 701 dropped probes since last increase.
+Increasing send delay for 10.129.183.48 from 5 to 10 due to 11 out of 25 dropped probes since last increase.
+Increasing send delay for 10.129.183.48 from 10 to 20 due to 11 out of 18 dropped probes since last increase.
+Increasing send delay for 10.129.183.48 from 20 to 40 due to 11 out of 15 dropped probes since last increase.
+Increasing send delay for 10.129.183.48 from 40 to 80 due to 11 out of 13 dropped probes since last increase.
+Increasing send delay for 10.129.183.48 from 80 to 160 due to 11 out of 13 dropped probes since last increase.
+Increasing send delay for 10.129.183.48 from 160 to 320 due to 11 out of 12 dropped probes since last increase.
+Increasing send delay for 10.129.183.48 from 320 to 640 due to 11 out of 11 dropped probes since last increase.
+Increasing send delay for 10.129.183.48 from 640 to 1000 due to 11 out of 11 dropped probes since last increase.
+Nmap scan report for 10.129.183.48
+Host is up (0.20s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT     STATE SERVICE     VERSION
+22/tcp   open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 caf10c515a596277f0a80c5c7c8ddaf8 (RSA)
+|   256 d51c81c97b076b1cc1b429254b52219f (ECDSA)
+|_  256 db1d8ceb9472b0d3ed44b96c93a7f91d (ED25519)
+8080/tcp open  nagios-nsca Nagios NSCA
+|_http-title: Home
+| http-methods: 
+|_  Supported Methods: GET HEAD OPTIONS
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Mar 13 15:23:42 2023 -- 1 IP address (1 host up) scanned in 214.21 seconds
