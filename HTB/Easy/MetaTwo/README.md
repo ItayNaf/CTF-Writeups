@@ -374,8 +374,10 @@ After copying everything to sepate files you now want to decrypt the message, I'
 
 1. `$ gpg --import pgpPubKey.gpg`
 2. `$ gpg2john pgpPrvtKey.gpg > gpg.hash`
-3. 	```
-		$ john --wordlist=/usr/share/wordlists/rockyou.txt gpg.hash   
+3. 	
+    ```
+		
+        $ john --wordlist=/usr/share/wordlists/rockyou.txt gpg.hash   
 
 		blink182         (Passpie)                    	
 	
