@@ -1,0 +1,13 @@
+creds.txt:
+edwards:1d7ffjwrx#$d6qn!9nndqgde4
+
+config_test.json:
+{
+    "SQL_URI": "mysql+pymysql://superpasstester:VUO8A2c2#3FnLq3*a9DX1U@localhost/superpasstest"
+}
+
+config_prod.json:
+{
+    "SQL_URI": "mysql+pymysql://superpassuser:dSA6l7q*yIVs$39Ml6ywvgK@localhost/superpass"
+}
+
