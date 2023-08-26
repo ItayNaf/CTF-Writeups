@@ -1,0 +1,77 @@
+# Nmap 7.93 scan initiated Sat Mar 25 17:31:24 2023 as: nmap -sC -sV -oN nmap/all-ports -p 80,22,5789, qreader.htb
+Nmap scan report for qreader.htb (10.129.192.146)
+Host is up (0.100s latency).
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 4fe3a667a227f9118dc30ed773a02c28 (ECDSA)
+|_  256 816e78766b8aea7d1babd436b7f8ecc4 (ED25519)
+80/tcp   open  http    Apache httpd 2.4.52
+|_http-title: Site doesn't have a title (text/html; charset=utf-8).
+| http-server-header: 
+|   Apache/2.4.52 (Ubuntu)
+|_  Werkzeug/2.1.2 Python/3.10.6
+5789/tcp open  unknown
+| fingerprint-strings: 
+|   GenericLines, GetRequest, HTTPOptions: 
+|     HTTP/1.1 400 Bad Request
+|     Date: Sat, 25 Mar 2023 21:31:15 GMT
+|     Server: Python/3.10 websockets/10.4
+|     Content-Length: 77
+|     Content-Type: text/plain
+|     Connection: close
+|     Failed to open a WebSocket connection: did not receive a valid HTTP request.
+|   Help, SSLSessionReq: 
+|     HTTP/1.1 400 Bad Request
+|     Date: Sat, 25 Mar 2023 21:31:31 GMT
+|     Server: Python/3.10 websockets/10.4
+|     Content-Length: 77
+|     Content-Type: text/plain
+|     Connection: close
+|     Failed to open a WebSocket connection: did not receive a valid HTTP request.
+|   RTSPRequest: 
+|     HTTP/1.1 400 Bad Request
+|     Date: Sat, 25 Mar 2023 21:31:16 GMT
+|     Server: Python/3.10 websockets/10.4
+|     Content-Length: 77
+|     Content-Type: text/plain
+|     Connection: close
+|_    Failed to open a WebSocket connection: did not receive a valid HTTP request.
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port5789-TCP:V=7.93%I=7%D=3/25%Time=641F6835%P=x86_64-pc-linux-gnu%r(Ge
+SF:nericLines,F4,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nDate:\x20Sat,\x202
+SF:5\x20Mar\x202023\x2021:31:15\x20GMT\r\nServer:\x20Python/3\.10\x20webso
+SF:ckets/10\.4\r\nContent-Length:\x2077\r\nContent-Type:\x20text/plain\r\n
+SF:Connection:\x20close\r\n\r\nFailed\x20to\x20open\x20a\x20WebSocket\x20c
+SF:onnection:\x20did\x20not\x20receive\x20a\x20valid\x20HTTP\x20request\.\
+SF:n")%r(GetRequest,F4,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nDate:\x20Sat
+SF:,\x2025\x20Mar\x202023\x2021:31:15\x20GMT\r\nServer:\x20Python/3\.10\x2
+SF:0websockets/10\.4\r\nContent-Length:\x2077\r\nContent-Type:\x20text/pla
+SF:in\r\nConnection:\x20close\r\n\r\nFailed\x20to\x20open\x20a\x20WebSocke
+SF:t\x20connection:\x20did\x20not\x20receive\x20a\x20valid\x20HTTP\x20requ
+SF:est\.\n")%r(HTTPOptions,F4,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nDate:
+SF:\x20Sat,\x2025\x20Mar\x202023\x2021:31:15\x20GMT\r\nServer:\x20Python/3
+SF:\.10\x20websockets/10\.4\r\nContent-Length:\x2077\r\nContent-Type:\x20t
+SF:ext/plain\r\nConnection:\x20close\r\n\r\nFailed\x20to\x20open\x20a\x20W
+SF:ebSocket\x20connection:\x20did\x20not\x20receive\x20a\x20valid\x20HTTP\
+SF:x20request\.\n")%r(RTSPRequest,F4,"HTTP/1\.1\x20400\x20Bad\x20Request\r
+SF:\nDate:\x20Sat,\x2025\x20Mar\x202023\x2021:31:16\x20GMT\r\nServer:\x20P
+SF:ython/3\.10\x20websockets/10\.4\r\nContent-Length:\x2077\r\nContent-Typ
+SF:e:\x20text/plain\r\nConnection:\x20close\r\n\r\nFailed\x20to\x20open\x2
+SF:0a\x20WebSocket\x20connection:\x20did\x20not\x20receive\x20a\x20valid\x
+SF:20HTTP\x20request\.\n")%r(Help,F4,"HTTP/1\.1\x20400\x20Bad\x20Request\r
+SF:\nDate:\x20Sat,\x2025\x20Mar\x202023\x2021:31:31\x20GMT\r\nServer:\x20P
+SF:ython/3\.10\x20websockets/10\.4\r\nContent-Length:\x2077\r\nContent-Typ
+SF:e:\x20text/plain\r\nConnection:\x20close\r\n\r\nFailed\x20to\x20open\x2
+SF:0a\x20WebSocket\x20connection:\x20did\x20not\x20receive\x20a\x20valid\x
+SF:20HTTP\x20request\.\n")%r(SSLSessionReq,F4,"HTTP/1\.1\x20400\x20Bad\x20
+SF:Request\r\nDate:\x20Sat,\x2025\x20Mar\x202023\x2021:31:31\x20GMT\r\nSer
+SF:ver:\x20Python/3\.10\x20websockets/10\.4\r\nContent-Length:\x2077\r\nCo
+SF:ntent-Type:\x20text/plain\r\nConnection:\x20close\r\n\r\nFailed\x20to\x
+SF:20open\x20a\x20WebSocket\x20connection:\x20did\x20not\x20receive\x20a\x
+SF:20valid\x20HTTP\x20request\.\n");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Mar 25 17:33:02 2023 -- 1 IP address (1 host up) scanned in 98.05 seconds

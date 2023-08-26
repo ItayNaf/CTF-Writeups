@@ -1,0 +1,33 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Processing directory 'list'
+DEBUG:root:Curl request output for directory 'list':
+<!doctype html>
+<html lang=en>
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to the target URL: <a href="/list">/list</a>. If not, click the link.
+
+INFO:werkzeug:127.0.0.1 - - [28/Apr/2023 10:04:17] "GET /list HTTP/1.1" 200 -
+INFO:root:Processing directory 'sdasdadsd'
+DEBUG:root:Curl request output for directory 'sdasdadsd':
+<!doctype html>
+<html lang=en>
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to the target URL: <a href="/list">/list</a>. If not, click the link.
+
+INFO:werkzeug:127.0.0.1 - - [28/Apr/2023 10:06:03] "GET /sdasdadsd HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Processing directory 'sdasdadsd'
+INFO:root:Curl request output for directory 'sdasdadsd':
+<!doctype html>
+<html lang=en>
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to the target URL: <a href="/list">/list</a>. If not, click the link.
+
+INFO:werkzeug:127.0.0.1 - - [28/Apr/2023 10:06:52] "GET /sdasdadsd HTTP/1.1" 200 -

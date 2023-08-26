@@ -1,0 +1,26 @@
+# Nmap 7.93 scan initiated Sat Apr  8 15:43:19 2023 as: nmap -sC -sV -oN nmap/initial -v 10.129.200.37
+Increasing send delay for 10.129.200.37 from 0 to 5 due to 277 out of 923 dropped probes since last increase.
+Increasing send delay for 10.129.200.37 from 5 to 10 due to 11 out of 15 dropped probes since last increase.
+Increasing send delay for 10.129.200.37 from 10 to 20 due to 11 out of 14 dropped probes since last increase.
+Increasing send delay for 10.129.200.37 from 20 to 40 due to 11 out of 16 dropped probes since last increase.
+Increasing send delay for 10.129.200.37 from 40 to 80 due to 11 out of 15 dropped probes since last increase.
+Increasing send delay for 10.129.200.37 from 80 to 160 due to 11 out of 12 dropped probes since last increase.
+Increasing send delay for 10.129.200.37 from 160 to 320 due to 11 out of 12 dropped probes since last increase.
+Nmap scan report for 10.129.200.37
+Host is up (0.084s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 4fe3a667a227f9118dc30ed773a02c28 (ECDSA)
+|_  256 816e78766b8aea7d1babd436b7f8ecc4 (ED25519)
+80/tcp open  http    Apache httpd 2.4.52
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+|_http-title: Did not follow redirect to http://searcher.htb/
+Service Info: Host: searcher.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Apr  8 15:43:41 2023 -- 1 IP address (1 host up) scanned in 21.78 seconds

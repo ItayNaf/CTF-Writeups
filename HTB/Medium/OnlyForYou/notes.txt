@@ -1,0 +1,5 @@
+Web Root: /var/www/only4you.htb/
+
+john:ThisIs4You
+
+user.txt - 309f96d748250491c384c93eb8bf411e
