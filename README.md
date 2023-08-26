@@ -16,6 +16,7 @@
 
 ### Medium Machines
 
+* [Agile](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Agile)
 * [Ambassador](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Ambassador)
 * [Awkward](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Awkward)
 * [BroScience](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/BroScience)
