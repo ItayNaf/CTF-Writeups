@@ -26,6 +26,10 @@
 * [OnlyForYou](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/OnlyForYou)
 
 
+### Hard Machines
+
+* [Snoopy](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Hard/Snoopy)
+
 **Some Respect would be appreciated :** [0xFade](https://app.hackthebox.com/users/1122628)
 
 
