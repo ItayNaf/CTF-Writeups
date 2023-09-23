@@ -1,0 +1,6 @@
+CEO:
+- http://mm.snoopy.htb/reset_password_complete?token=i31ukutwmr6bw3u833uf6k9wmanz16td4oaio9knjfos18ua1pg43ggqbec1tzyt
+
+SBrown:
+- http://mm.snoopy.htb/reset_password_complete?token=3Dn7jka='
+b'1f5yc48mm8gkwsn9f9s5y88t4zkspapcea443i6mp7zaazy64yeh5fycps7

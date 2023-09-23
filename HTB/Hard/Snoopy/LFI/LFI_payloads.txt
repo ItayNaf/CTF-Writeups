@@ -1,0 +1,8 @@
+/home/cbrown/.bashrc
+/home/cbrown/.ssh/id_rsa
+/home/sbrown/.bashrc
+/home/sbrown/.ssh/id_rsa
+/home/lpelt/.bashrc
+/home/lpelt/.ssh/id_rsa
+/home/vgray/.bashrc
+/home/vgray/.ssh/id_rsa
