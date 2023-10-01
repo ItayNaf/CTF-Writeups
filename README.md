@@ -24,6 +24,7 @@
 * [Escape](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Escape)
 * [Investigation](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Investigation)
 * [OnlyForYou](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/OnlyForYou)
+* [Format](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Medium/Format)
 
 
 ### Hard Machines
