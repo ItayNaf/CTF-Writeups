@@ -1,0 +1,3 @@
+/var/www/html/lib/database.php
+/etc/mysql/mariadb.cnf
+/var/www/html/include/vendor/phpseclib/Crypt/RSA.php

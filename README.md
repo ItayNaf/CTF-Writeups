@@ -14,6 +14,8 @@
 * [Trick](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Easy/Trick)
 * [Inject](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Easy/Inject)
 * [Socket](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Easy/Stocker)
+* [MonitorsTwo](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Easy/MonitorsTwo)
+* [Precious](https://github.com/ItayNaf/CTF-Writeups/tree/main/HTB/Easy/Precious)
 
 ### Medium Machines
 

