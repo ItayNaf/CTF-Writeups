@@ -1,0 +1,25 @@
+# Nmap 7.93 scan initiated Sun May 14 06:19:28 2023 as: nmap -sV -sC -oA nmap/initial -v 10.129.86.145
+Nmap scan report for 10.129.86.145
+Host is up (0.10s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 c397ce837d255d5dedb545cdf20b054f (RSA)
+|   256 b3aa30352b997d20feb6758840a517c1 (ECDSA)
+|_  256 fab37d6e1abcd14b68edd6e8976727d7 (ED25519)
+80/tcp   open  http    nginx 1.18.0
+|_http-server-header: nginx/1.18.0
+|_http-title: Site doesn't have a title (text/html).
+| http-methods: 
+|_  Supported Methods: GET HEAD
+3000/tcp open  http    nginx 1.18.0
+|_http-title: Did not follow redirect to http://microblog.htb:3000/
+|_http-server-header: nginx/1.18.0
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun May 14 06:19:49 2023 -- 1 IP address (1 host up) scanned in 21.58 seconds

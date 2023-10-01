@@ -1,0 +1,166 @@
+HTTP/1.1 302 Found
+Server: nginx/1.18.0
+Date: Mon, 15 May 2023 17:41:46 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Location: /edit?message=Section added!&status=success
+
+<!DOCTYPE html>
+<head>
+<link rel="icon" type="image/x-icon" href="/images/brain.ico">
+<link rel="stylesheet" href="http://microblog.htb/static/css/styles.css">
+<script src="http://microblog.htb/static/js/jquery.js"></script>
+<script src="http://microblog.htb/static/js/fontawesome.js"></script>
+<title></title>
+<script>
+    $(window).on('load', function(){
+        const queryString = window.location.search;
+        if(queryString) {
+            const urlParams = new URLSearchParams(queryString);
+            if(urlParams.get('message') && urlParams.get('status')) {
+                const status = urlParams.get('status')
+                const message = urlParams.get('message')
+                $(".floating-message").css("display", "block");
+                $(".floating-message").children(".message-content").text(message);
+                if(status === "fail") {
+                    $(".floating-message").css("background-color", "#AF0606");
+                }
+                else {
+                    $(".floating-message").css("background-color", "#4BB543");
+                }
+            }
+        }
+        const pro = false;
+        if(!pro) {
+            $(".pro").css("display", "none");
+            $("#img-dot").css("display", "none");
+        }
+        const html = "<div class = \"\/etc\/passwd blog-indiv-content\">root:x:0:0:root:\/root:\/bin\/bash\ndaemon:x:1:1:daemon:\/usr\/sbin:\/usr\/sbin\/nologin\nbin:x:2:2:bin:\/bin:\/usr\/sbin\/nologin\nsys:x:3:3:sys:\/dev:\/usr\/sbin\/nologin\nsync:x:4:65534:sync:\/bin:\/bin\/sync\ngames:x:5:60:games:\/usr\/games:\/usr\/sbin\/nologin\nman:x:6:12:man:\/var\/cache\/man:\/usr\/sbin\/nologin\nlp:x:7:7:lp:\/var\/spool\/lpd:\/usr\/sbin\/nologin\nmail:x:8:8:mail:\/var\/mail:\/usr\/sbin\/nologin\nnews:x:9:9:news:\/var\/spool\/news:\/usr\/sbin\/nologin\nuucp:x:10:10:uucp:\/var\/spool\/uucp:\/usr\/sbin\/nologin\nproxy:x:13:13:proxy:\/bin:\/usr\/sbin\/nologin\nwww-data:x:33:33:www-data:\/var\/www:\/usr\/sbin\/nologin\nbackup:x:34:34:backup:\/var\/backups:\/usr\/sbin\/nologin\nlist:x:38:38:Mailing List Manager:\/var\/list:\/usr\/sbin\/nologin\nirc:x:39:39:ircd:\/run\/ircd:\/usr\/sbin\/nologin\ngnats:x:41:41:Gnats Bug-Reporting System (admin):\/var\/lib\/gnats:\/usr\/sbin\/nologin\nnobody:x:65534:65534:nobody:\/nonexistent:\/usr\/sbin\/nologin\n_apt:x:100:65534::\/nonexistent:\/usr\/sbin\/nologin\nsystemd-network:x:101:102:systemd Network Management,,,:\/run\/systemd:\/usr\/sbin\/nologin\nsystemd-resolve:x:102:103:systemd Resolver,,,:\/run\/systemd:\/usr\/sbin\/nologin\nsystemd-timesync:x:999:999:systemd Time Synchronization:\/:\/usr\/sbin\/nologin\nsystemd-coredump:x:998:998:systemd Core Dumper:\/:\/usr\/sbin\/nologin\ncooper:x:1000:1000::\/home\/cooper:\/bin\/bash\nredis:x:103:33::\/var\/lib\/redis:\/usr\/sbin\/nologin\ngit:x:104:111:Git Version Control,,,:\/home\/git:\/bin\/bash\nmessagebus:x:105:112::\/nonexistent:\/usr\/sbin\/nologin\nsshd:x:106:65534::\/run\/sshd:\/usr\/sbin\/nologin\n_laurel:x:997:997::\/var\/log\/laurel:\/bin\/false\n<\/div><div class = \"\/etc\/passwd blog-indiv-content\">root:x:0:0:root:\/root:\/bin\/bash\ndaemon:x:1:1:daemon:\/usr\/sbin:\/usr\/sbin\/nologin\nbin:x:2:2:bin:\/bin:\/usr\/sbin\/nologin\nsys:x:3:3:sys:\/dev:\/usr\/sbin\/nologin\nsync:x:4:65534:sync:\/bin:\/bin\/sync\ngames:x:5:60:games:\/usr\/games:\/usr\/sbin\/nologin\nman:x:6:12:man:\/var\/cache\/man:\/usr\/sbin\/nologin\nlp:x:7:7:lp:\/var\/spool\/lpd:\/usr\/sbin\/nologin\nmail:x:8:8:mail:\/var\/mail:\/usr\/sbin\/nologin\nnews:x:9:9:news:\/var\/spool\/news:\/usr\/sbin\/nologin\nuucp:x:10:10:uucp:\/var\/spool\/uucp:\/usr\/sbin\/nologin\nproxy:x:13:13:proxy:\/bin:\/usr\/sbin\/nologin\nwww-data:x:33:33:www-data:\/var\/www:\/usr\/sbin\/nologin\nbackup:x:34:34:backup:\/var\/backups:\/usr\/sbin\/nologin\nlist:x:38:38:Mailing List Manager:\/var\/list:\/usr\/sbin\/nologin\nirc:x:39:39:ircd:\/run\/ircd:\/usr\/sbin\/nologin\ngnats:x:41:41:Gnats Bug-Reporting System (admin):\/var\/lib\/gnats:\/usr\/sbin\/nologin\nnobody:x:65534:65534:nobody:\/nonexistent:\/usr\/sbin\/nologin\n_apt:x:100:65534::\/nonexistent:\/usr\/sbin\/nologin\nsystemd-network:x:101:102:systemd Network Management,,,:\/run\/systemd:\/usr\/sbin\/nologin\nsystemd-resolve:x:102:103:systemd Resolver,,,:\/run\/systemd:\/usr\/sbin\/nologin\nsystemd-timesync:x:999:999:systemd Time Synchronization:\/:\/usr\/sbin\/nologin\nsystemd-coredump:x:998:998:systemd Core Dumper:\/:\/usr\/sbin\/nologin\ncooper:x:1000:1000::\/home\/cooper:\/bin\/bash\nredis:x:103:33::\/var\/lib\/redis:\/usr\/sbin\/nologin\ngit:x:104:111:Git Version Control,,,:\/home\/git:\/bin\/bash\nmessagebus:x:105:112::\/nonexistent:\/usr\/sbin\/nologin\nsshd:x:106:65534::\/run\/sshd:\/usr\/sbin\/nologin\n_laurel:x:997:997::\/var\/log\/laurel:\/bin\/false\n<\/div><div class = \"\/etc\/passwd blog-indiv-content\">root:x:0:0:root:\/root:\/bin\/bash\ndaemon:x:1:1:daemon:\/usr\/sbin:\/usr\/sbin\/nologin\nbin:x:2:2:bin:\/bin:\/usr\/sbin\/nologin\nsys:x:3:3:sys:\/dev:\/usr\/sbin\/nologin\nsync:x:4:65534:sync:\/bin:\/bin\/sync\ngames:x:5:60:games:\/usr\/games:\/usr\/sbin\/nologin\nman:x:6:12:man:\/var\/cache\/man:\/usr\/sbin\/nologin\nlp:x:7:7:lp:\/var\/spool\/lpd:\/usr\/sbin\/nologin\nmail:x:8:8:mail:\/var\/mail:\/usr\/sbin\/nologin\nnews:x:9:9:news:\/var\/spool\/news:\/usr\/sbin\/nologin\nuucp:x:10:10:uucp:\/var\/spool\/uucp:\/usr\/sbin\/nologin\nproxy:x:13:13:proxy:\/bin:\/usr\/sbin\/nologin\nwww-data:x:33:33:www-data:\/var\/www:\/usr\/sbin\/nologin\nbackup:x:34:34:backup:\/var\/backups:\/usr\/sbin\/nologin\nlist:x:38:38:Mailing List Manager:\/var\/list:\/usr\/sbin\/nologin\nirc:x:39:39:ircd:\/run\/ircd:\/usr\/sbin\/nologin\ngnats:x:41:41:Gnats Bug-Reporting System (admin):\/var\/lib\/gnats:\/usr\/sbin\/nologin\nnobody:x:65534:65534:nobody:\/nonexistent:\/usr\/sbin\/nologin\n_apt:x:100:65534::\/nonexistent:\/usr\/sbin\/nologin\nsystemd-network:x:101:102:systemd Network Management,,,:\/run\/systemd:\/usr\/sbin\/nologin\nsystemd-resolve:x:102:103:systemd Resolver,,,:\/run\/systemd:\/usr\/sbin\/nologin\nsystemd-timesync:x:999:999:systemd Time Synchronization:\/:\/usr\/sbin\/nologin\nsystemd-coredump:x:998:998:systemd Core Dumper:\/:\/usr\/sbin\/nologin\ncooper:x:1000:1000::\/home\/cooper:\/bin\/bash\nredis:x:103:33::\/var\/lib\/redis:\/usr\/sbin\/nologin\ngit:x:104:111:Git Version Control,,,:\/home\/git:\/bin\/bash\nmessagebus:x:105:112::\/nonexistent:\/usr\/sbin\/nologin\nsshd:x:106:65534::\/run\/sshd:\/usr\/sbin\/nologin\n_laurel:x:997:997::\/var\/log\/laurel:\/bin\/false\n<\/div><div class = \"\/etc\/passwd blog-indiv-content\">root:x:0:0:root:\/root:\/bin\/bash\ndaemon:x:1:1:daemon:\/usr\/sbin:\/usr\/sbin\/nologin\nbin:x:2:2:bin:\/bin:\/usr\/sbin\/nologin\nsys:x:3:3:sys:\/dev:\/usr\/sbin\/nologin\nsync:x:4:65534:sync:\/bin:\/bin\/sync\ngames:x:5:60:games:\/usr\/games:\/usr\/sbin\/nologin\nman:x:6:12:man:\/var\/cache\/man:\/usr\/sbin\/nologin\nlp:x:7:7:lp:\/var\/spool\/lpd:\/usr\/sbin\/nologin\nmail:x:8:8:mail:\/var\/mail:\/usr\/sbin\/nologin\nnews:x:9:9:news:\/var\/spool\/news:\/usr\/sbin\/nologin\nuucp:x:10:10:uucp:\/var\/spool\/uucp:\/usr\/sbin\/nologin\nproxy:x:13:13:proxy:\/bin:\/usr\/sbin\/nologin\nwww-data:x:33:33:www-data:\/var\/www:\/usr\/sbin\/nologin\nbackup:x:34:34:backup:\/var\/backups:\/usr\/sbin\/nologin\nlist:x:38:38:Mailing List Manager:\/var\/list:\/usr\/sbin\/nologin\nirc:x:39:39:ircd:\/run\/ircd:\/usr\/sbin\/nologin\ngnats:x:41:41:Gnats Bug-Reporting System (admin):\/var\/lib\/gnats:\/usr\/sbin\/nologin\nnobody:x:65534:65534:nobody:\/nonexistent:\/usr\/sbin\/nologin\n_apt:x:100:65534::\/nonexistent:\/usr\/sbin\/nologin\nsystemd-network:x:101:102:systemd Network Management,,,:\/run\/systemd:\/usr\/sbin\/nologin\nsystemd-resolve:x:102:103:systemd Resolver,,,:\/run\/systemd:\/usr\/sbin\/nologin\nsystemd-timesync:x:999:999:systemd Time Synchronization:\/:\/usr\/sbin\/nologin\nsystemd-coredump:x:998:998:systemd Core Dumper:\/:\/usr\/sbin\/nologin\ncooper:x:1000:1000::\/home\/cooper:\/bin\/bash\nredis:x:103:33::\/var\/lib\/redis:\/usr\/sbin\/nologin\ngit:x:104:111:Git Version Control,,,:\/home\/git:\/bin\/bash\nmessagebus:x:105:112::\/nonexistent:\/usr\/sbin\/nologin\nsshd:x:106:65534::\/run\/sshd:\/usr\/sbin\/nologin\n_laurel:x:997:997::\/var\/log\/laurel:\/bin\/false\n<\/div>".replace(/(\r\n|\n|\r)/gm, "");
+        $(".push-for-h1").after(html);
+        $(".user-first-name").text("Fade");
+        $(".blog-name").text("fady");
+        const class_after_push = $(".push-for-h1").next().children().attr('class');
+        if(class_after_push) {
+            if(class_after_push.includes("blog-h1")) {
+                $(".push-for-h1").css("display", "none");
+            }
+        }
+        const placeholders = ["Today, I learned to...", "You won't believe what happened! I went...", "My name is...", "On today's adventure in the park, I...", "Well, it finally happened..."];
+        $(".txt-form-input").attr("placeholder", placeholders.sort(() => 0.5 - Math.random())[0]);
+        $(".form-id").attr("value", Math.random().toString(36).slice(2));
+
+        //image upload
+        const actualBtn = document.getElementById('actual-btn');
+        const fileChosen = document.getElementById('file-chosen');
+        actualBtn.addEventListener('change', function(){
+            fileChosen.textContent = this.files[0].name
+        })
+
+        //add delete buttons
+        $('.blog-indiv-content').each(
+            function() {
+                $(this).prepend("<i class=\"fa fa-trash delete-button\" onclick=delete_section(this)></i>");
+            }
+        )
+
+        const blogName = String(window.location).split('.')[0].split('//')[1]
+        document.title = blogName + " - edit - Microblog"
+        $(".blog-name").attr("href", "http://"+blogName+".microblog.htb")
+    });
+</script>
+<script>
+    function showForm(name) {
+        //reset selected options
+        $(".dot").removeClass("dotSelected");
+        $(".component-form").css("display", "none");
+        $(".dot").css("background", "#CA776D");
+
+        $(`#${name}-dot`).addClass("dotSelected");
+        $(".dot").hover(
+            function() {
+                if(!$(this).hasClass("dotSelected")) {
+                    $(this).css("background", "#e4aaa3")
+                }
+            },
+            function() {
+                if(!$(this).hasClass("dotSelected")) {
+                    $(this).css("background", "#CA776D")
+                }
+            }
+        )
+        $(`#${name}-form`).css("display", "block");
+        $(`#${name}-dot`).css("background", "#e4aaa3");
+    }
+</script>
+<script>
+    function delete_section(section) {
+        const id = $(section).parent().attr('class').split(" ")[0]
+        $.ajax({
+            type: "POST",
+            url: "/edit/index.php",
+            data: {"action":"delete","id":id},
+            success: function() {
+                window.location.replace("/edit?message=Section deleted&status=success");
+            }
+        })
+    }
+</script>
+</head>
+<body>
+    <div class="floating-message">
+        <span class="message-content" style = "margin-right: 10px"></span>
+        <span class="closebtn" style = "font-weight: bold;" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+    <div class = "blue-fill" style = "border-bottom: 2px solid; padding-bottom: 25px;">
+        <div class="navbar" style = "overflow: inherit;">
+            <a href="http://app.microblog.htb" class="float-left title">Microblog</a>
+            <div class = "float-right select-buttons">
+                <span class = "pro"><i class="fa fa-star gold"></i>&nbsp;&nbsp;<span class = "gold">Pro</span></span>
+                <div class = "menu-button hello-text">Hello, <span class = "user-first-name"></span></div>
+                <a href="http://app.microblog.htb/dashboard" class = "menu-button">Dashboard</a>
+                <a href="http://app.microblog.htb/logout" class = "menu-button">Logout</a>
+            </div>
+        </div>
+        <div class = "header-content-item">
+            <span class = "big-text heading">Edit Blog</span>
+            <a class = "blog-name" style = "font-size: 25px; text-align: center; top: -20px; position: relative; display: block; margin-left: auto; margin-right: auto; width: min-content;"></a>
+        </div>
+    </div>
+    <div class = "push-for-h1" style = "min-height: 25px;"></div>
+    <div class = "component-selector">
+        <div class = "links">
+            <a class = "dot" id = "h1-dot" onclick="showForm('h1')">h1</a>
+            <a class = "dot" id = "txt-dot" onclick="showForm('txt')">txt</a>
+            <a class = "dot" id = "img-dot" onclick="showForm('img')">img</a>
+        </div>
+    </div>
+    <form action="/edit/index.php" method="POST" class = "component-form" id = "h1-form">
+        <input class = "form-id" name = "id" type="hidden"/>
+        <input name = "header" type = "text" placeholder = "Header" required>
+        <input type = "submit" value="Post">
+    </form>
+    <form action="/edit/index.php" method="POST" class = "component-form" id = "txt-form">
+        <input class = "form-id" name = "id" type="hidden"/>
+        <textarea name = "txt" form="txt-form" class = "txt-form-input" required></textarea>
+        <input type = "submit" value="Post">
+    </form>
+    <form action="/edit/index.php" method="POST" class = "component-form" id = "img-form" enctype="multipart/form-data">
+        <div class = "image-upload-outer">
+            <input class = "form-id" name = "id" type="hidden"/>
+            <input type="file" id="actual-btn" name="image" accept="image/png" hidden required/>
+            <label class = "select-image-label pink-fill" for="actual-btn">Select Image</label>
+            <span id="file-chosen">No image selected</span>
+        </div>
+        <p></p>
+        <input type = "submit" value="Upload">
+    </form>
+    <footer>
+        © 2022 Microblog<br/>
+        <a href="https://www.vecteezy.com/free-vector/brain">Brain Vectors by Vecteezy</a>
+    </footer>
+</body>
+</html>
